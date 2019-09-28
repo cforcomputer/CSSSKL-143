@@ -2,6 +2,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * @author Patrick O'Brien
+ * Course: CSSSKL 143
+ * @project lab 1
+ * */
+
 public class usingScanner {
     // Build a main class that will open the text files from the first two programs and output the
     // results of the file to console.
@@ -33,9 +39,8 @@ public class usingScanner {
                     filename = "output.txt";
                     break;
                 case 3:
-                    return;
                 default:
-                    System.out.println("That was not one of the choices!");
+                    return;
             }
             try {
                 File file = new File(filename);

@@ -1,12 +1,12 @@
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
 /**
  * @author Patrick O'Brien
  * Course: CSSSKL 143
  * @project lab 1
  * */
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Scanner;
-
 // File IO part 3
 public class FileReader
 {

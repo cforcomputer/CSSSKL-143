@@ -1,5 +1,9 @@
 import java.util.Scanner;
-
+/**
+ * @author Patrick O'Brien
+ * Course: CSSSKL 143
+ * @project lab 1
+ * */
 /*
     Declare a new program or class (if this is eclipse, make a new project first).
     Define the main function.

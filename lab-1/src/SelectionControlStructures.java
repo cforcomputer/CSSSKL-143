@@ -1,5 +1,9 @@
 import java.util.Scanner;
-
+/**
+ * @author Patrick O'Brien
+ * Course: CSSSKL 143
+ * @project lab 1
+ * */
 public class SelectionControlStructures
 {
     // Make a new program and define main
