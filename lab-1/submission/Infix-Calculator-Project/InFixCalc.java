@@ -21,8 +21,8 @@ import java.util.Scanner;
  *
  * Solution by
  */
-public class InfixCalculator {
-    //example pattern: "3 + 5"
+public class InFixCalc{
+    //example pattern: "3 + 5"  
     //general pattern: <lhs='3'> <operation='+'> <rhs='5'> //extended pattern:     ...
     //special case:
     //other special cases?
@@ -40,11 +40,9 @@ public class InfixCalculator {
     //preconditions: all binary operations are separated via a space <<<
     //postconditions: returns the result of the processed string
     public static int calculate(String input) {
-        int lhs = 0, rhs = 0; //short for left-hand & right-hand side
-        char operation;
         /*todo: your name and code goes here
-        * @author Patrick O'Brien
-        * */
+         * @author Patrick O'Brien
+         * */
         /*You need a Scanner(or StringTokenizer) to get tokens
          *Then you need a loop, and switch inside that loop*/
         // get tokens
@@ -60,9 +58,56 @@ public class InfixCalculator {
         //      System.out.println("Pattern found from " + m.start() + " to " + (m.end()-1));
         // conclusion: Regular expressions - or regex is when the same pattern appears anywhere in a given
         // string or sequence of numbers regardless of spaces.
-        Scanner key = new Scanner(System.in);
 
+        // delimiter?
+        // split with regex, separate operations into a stack and move through operations in sequence. -- not for this problem
 
+        int lhs = 0, rhs = 0; //short for left-hand & right-hand side
+        char operation= ' ';
+
+        Scanner key = new Scanner(input);
+
+        int temp = 0;
+        int prev = 0;
+        while (key.hasNext())
+        {
+            System.out.println(temp);
+            key.useDelimiter(" ");
+            String curr = key.next();
+            // System.out.println(curr);
+            try {
+                temp = Integer.parseInt(curr);
+            } catch (NumberFormatException e)
+            {
+                operation = curr.charAt(0);
+                continue;
+            }
+
+            if (operation == '*')
+            {
+                temp *= prev;
+            }
+            else if (operation == '-')
+            {
+                temp -= prev;
+            }
+            else if (operation == '/')
+            {
+                if (prev != 0)
+                {
+                    temp /= prev;
+                }
+            }
+            else if (operation == '+')
+            {
+                temp += prev;
+            }
+            // save the last int to prev, repeat loop and temp becomes new int
+            prev = temp;
+        }
+        lhs = temp;
+//        System.out.println(str);
+//        System.out.println(str.split("(?<=[-+*/])|(?=[-+*/])"));
         return lhs;
     }
 }
