@@ -31,9 +31,9 @@ public class Box { // fixed Box2 to box
 	{
 		// if this Box (b.getVolume) is larger than the argument Box b (Box b param) then
 		// return this box
-		if(b.getVolume() < this.getVolume()) // added this. to getVolume()
+		if(this.getVolume() >= b.getVolume()) // added this. to getVolume()
 		{
-			return new Box(getWidth(), getHeight(), getDepth(), getGrade());
+			return this;
 		}
 		return b;
 	}
@@ -46,12 +46,12 @@ public class Box { // fixed Box2 to box
 
 	public int getVolume()
 	{
-		return getWidth() * getHeight() * getDepth(); // removed grade from calculation
+		return getHeight() * getWidth() * getDepth(); // removed grade from calculation
 	}
 
 	public int getWidth()
 	{
-		return width;
+		return this.width;
 	}
 
 	public int getHeight() // changed from double to int
@@ -61,7 +61,7 @@ public class Box { // fixed Box2 to box
 
 	public int getDepth() // removed param int b
 	{
-		return depth;
+		return this.depth;
 	}
 }
 

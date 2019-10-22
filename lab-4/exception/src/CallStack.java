@@ -18,10 +18,16 @@ public class CallStack{
 
 
    public static void main (String args[]){
-      CallStack myCallStack;
-      myCallStack = new CallStack();
-      System.out.println("In the main method");
-      myCallStack.func1 ();
+      try {
+          CallStack myCallStack;
+          myCallStack = new CallStack();
+          System.out.println("In the main method");
+          myCallStack.func1();
+      }
+      catch(ArithmeticException e)
+      {
+          System.err.println("Cannot divide by zero!");
+      }
 
    }
 }
