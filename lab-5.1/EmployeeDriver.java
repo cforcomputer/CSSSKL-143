@@ -21,7 +21,23 @@ public class EmployeeDriver {
 		
 		//todo: Build some PermanentHire and Consultant objects here
 		//and add them to the ArrayList below
-		
+		PermanentHire p1 = new PermanentHire("Henry", 654451233);
+		PermanentHire p2 = new PermanentHire("Philip", 974564230, 67000);
+
+		// Using the employeeDriver, build a ColorWithAlpha and try to add it to the
+		// ArrayList of Employees
+		// Q: What error do you encounter?
+		/*
+		A: It says that the ArrayList cannot be applied to ColorWithAlpha,
+		this is likely because when the ArrayList is created, it is declared
+		to be ArrayList<Employee>, meaning it is limited to objects of the
+		Employee type. So Employee and any of its child classes.
+		 */
+
+		Consultant c1 = new Consultant("Kevin", 678940987);
+		Consultant c2 = new Consultant("Bacon", 775543998, 34.50);
+		ColorWithAlpha color1 = new ColorWithAlpha(210);
+		ColorException color2 = new ColorException();
 		//and build a set of workers, all of which are employees
 		ArrayList<Employee> myEmployees = new ArrayList<Employee>();
 		
@@ -30,8 +46,19 @@ public class EmployeeDriver {
 		myEmployees.add(emp3);
 		myEmployees.add(emp4);
 		myEmployees.add(emp5);
+		myEmployees.add(p1);
+		myEmployees.add(p2);
 		//todo: add a sixth and seventh employee to this list that you create
-		
+//		myEmployees.add(color1);
+		// add consultants
+		myEmployees.add(c1);
+		myEmployees.add(c2);
+//		myEmployees.add(color2);
+		// Cannot be applied to ArrayList, if you want to add objects
+		// that are not of the Employee class, you need to declare
+		// the ArrayList as a general object instead of a specific
+		// class object.
+
 		
 		//this code doesn't need to change, even if you add 10 new employee classes and 
 		//add 102 new employees - this is an example of generic code that can be written 
