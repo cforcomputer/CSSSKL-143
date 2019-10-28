@@ -1,17 +1,20 @@
 //TODO: if you use this class because you dont have your
 //previous SimpleColor, you must document the code with comments
 //and fix the setters so they don't invalidate the [0-255] rule
-public class SimpleColor {
+public class SimpleColor{
 	private int r;
 	private int g;
 	private int b;
-	
-	
+
+
 	public int getR() {
 		return r;
 	}
 
 	public void setR(int r) {
+		if (this.r < 0 || this.r > 255) {
+			throw new ColorException();
+		}
 		this.r = r;
 	}
 
@@ -20,6 +23,9 @@ public class SimpleColor {
 	}
 
 	public void setG(int g) {
+		if (this.g < 0 || this.g > 255) {
+			throw new ColorException();
+		}
 		this.g = g;
 	}
 
@@ -28,6 +34,9 @@ public class SimpleColor {
 	}
 
 	public void setB(int b) {
+		if (this.b < 0 || this.b > 255) {
+			throw new ColorException();
+		}
 		this.b = b;
 	}
 
