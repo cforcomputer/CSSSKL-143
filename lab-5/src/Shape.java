@@ -16,7 +16,8 @@ import java.awt.*;
 class Shape extends Object {
 	private int x = 0;
 	private int y = 0;
-	
+
+	public Shape() {}
 	public Shape( int a, int b ) {
 		x=a;
 		y=b;

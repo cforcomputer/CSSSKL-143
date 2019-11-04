@@ -88,10 +88,10 @@ class PolyDemo extends JFrame {
 							break;
 				case 1: 	retVal = new Spray( x,y );//Cube( x, y, getRandInt(), getRandInt(), getRandInt() );
 							break;
-				case 2: 	retVal = new Spray( x,y );
+				case 2: 	retVal = new Square(x);
 							break;
-				case 3: 	retVal = new Spray( x,y );//new Circle( x,y,getRandInt() );////new Cylinder( x,y, getRandInt(), getRandInt() );
-							break;				
+				case 3: 	retVal = new Circle( x,y );//new Circle( x,y,getRandInt() );////new Cylinder( x,y, getRandInt(), getRandInt() );
+							break;
 			}
 		
 			return retVal;
