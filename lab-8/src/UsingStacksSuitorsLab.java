@@ -32,14 +32,14 @@ public class UsingStacksSuitorsLab implements Runnable {
 		System.out.println(s2 + " reversed is: ");
 		printReverse(s2);
 
-//	    recPrintReverse(s1);
-//		System.out.println();
-//		recPrintReverse(s2);
-//		System.out.println();
-/*
+	    recPrintReverse(s1);
+		System.out.println();
+		recPrintReverse(s2);
+		System.out.println();
+
 		System.out.println(s1 + " is a palindrome: " + isPalindrome(s1));
 		System.out.println(s2 + " is a palindrome: " + isPalindrome(s2));
-
+/*
 		System.out.println(s1 + " is a palindrome(recursively): " + isPalindromeRec(s1));
 		System.out.println(s2 + " is a palindrome(recursively): " + isPalindromeRec(s2));
 
@@ -66,7 +66,8 @@ public class UsingStacksSuitorsLab implements Runnable {
         int i = target.length() - 1;
         while (i >= 0) {
             System.out.print(target.charAt(i));
-            foo.push(target.charAt(i--));
+            foo.push(target.charAt(i));
+            i--;
         }
         System.out.println();
 	}
@@ -76,14 +77,32 @@ public class UsingStacksSuitorsLab implements Runnable {
      * */
 	public static void recPrintReverse(String target) {
 		//todo
+        int i = target.length() - 1;
         if (target.length() == 0) {
             return;
         }
+        else {
+            System.out.print(target.charAt(target.length() - 1));
+            recPrintReverse(target.substring(0, target.length() - 1));
+        }
 	}
 //
-//	public static boolean isPalindrome(String input) {
-//		//todo: use a stack
-//	}
+	public static boolean isPalindrome(String input) throws Exception {
+		//todo: use a stack
+        Stack<Integer> oof = new Stack<>();
+        int i = 0;
+        while (i < input.length()) {
+            oof.push(input.charAt(i));
+        }
+
+        Stack<Integer> oof2 = new Stack<>();
+
+		while(oof.size() >= 0) {
+			oof2.push(oof);
+			oof.pop();
+		}
+		return oof.equals(oof2);
+	}
 //
 //	public static boolean isPalindromeRec(String sentence)	{
 //	  	//todo
