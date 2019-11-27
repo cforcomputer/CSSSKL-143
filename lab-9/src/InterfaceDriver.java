@@ -1,11 +1,7 @@
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import javax.swing.JFrame;
 
 //  InterfaceDriver
 //  CSSSKL143
@@ -17,9 +13,9 @@ public class InterfaceDriver {
     //comment and uncomment the demo functions in main to test
     public static void main(String[] args) {
         comparableDemo();
-        cloneableDemo();
-        serializableDemo();
-        actionListenerDemo();
+//        cloneableDemo();
+//        serializableDemo();
+//        actionListenerDemo();
     }
     
     public static void actionListenerDemo() {
@@ -57,30 +53,30 @@ public class InterfaceDriver {
             ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data.obj"));
             Student a = new Student("FileIO1", 3.0);
             Student b = new Student("FileIO2", 4.0);
-        
+
             os.writeObject(a);
             os.writeObject(b);
             os.close();
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Bad OOS");
         }
-    
-        
+
+
     }
 
-//    public static void comparableDemo() {
-//        Student a = new Student("Rob", 3.0);
-//        Student b = new Student("Bill", 4.0);
-//        Student c = new Student("Mary", 4.0);
-//
-//
-//        System.out.println( " a compareTo b :" + a.compareTo(b));
-//        System.out.println( " b compareTo a :" + b.compareTo(a));
-//        System.out.println( " b compareTo c :" + b.compareTo(c));
-//    }
-//
+    public static void comparableDemo() {
+        Student a = new Student("Rob", 3.0);
+        Student b = new Student("Bill", 4.0);
+        Student c = new Student("Mary", 4.0);
+
+
+        System.out.println( " a compareTo b :" + a.compareTo(b));
+        System.out.println( " b compareTo a :" + b.compareTo(a));
+        System.out.println( " b compareTo c :" + b.compareTo(c));
+    }
+
 //
 //    public static void cloneableDemo() {
 //        Student a = new Student("Evan", 3.0);

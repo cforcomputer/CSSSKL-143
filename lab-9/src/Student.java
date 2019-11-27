@@ -1,51 +1,98 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 /**
- * (1) Build a Student Class with only two data items: a String name and a double GPA.
- *
+ * @author Patrick O'Brien
+ * @version 11/25/2019
  * */
 
+// Build a class definition so that it implements comparable
+public class Student implements Comparable<Student> {
 
-public class Student implements Serializable {
-	// String name and double GPA
-	private double GPA;
-	private String name;
-	
-	public Student(String n, double gpa) {
-		name = n;
-		GPA = gpa;
-	}
-	
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		writeObjectToFile();
-		Student a = readObjectFromFile();
-		
-		if(a != null) {
-			System.out.println(a.toString());
-		}
-	}
+    // (1) Build a Student Class with only two data items: a String name and a double GPA.
+    private String name;
+    private double GPA;
 
-	private static Student readObjectFromFile() throws FileNotFoundException, IOException, ClassNotFoundException {
-		ObjectInputStream is = new ObjectInputStream(new FileInputStream("data.obj"));
-		Student one = (Student) is.readObject();
-	
-		is.close();
-		
-		return one;
-	}
+    /**
+     * (4) Build main to test your Students, and in this main build a list of 10 Students with different GPAs.
+     * */
+    public static void main(String[] args) {
+//        comparableDemo ns_1 = new comparableDemo();
+//        comparableDemo ns_2 = new comparableDemo();
+//        comparableDemo ns_3 = new comparableDemo();
+//        comparableDemo ns_4 = new comparableDemo();
+//        comparableDemo ns_5 = new comparableDemo();
+//        comparableDemo ns_6 = new comparableDemo();
+//        comparableDemo ns_7 = new comparableDemo();
+//        comparableDemo ns_8 = new comparableDemo();
+//        comparableDemo ns_9 = new comparableDemo();
+//        comparableDemo ns_10 = new comparableDemo();
+    }
 
-	private static void writeObjectToFile() throws FileNotFoundException, IOException {
-		Student nguyen = new Student("Nguyen", 3.5);
 
-		ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data.obj"));
-		os.writeObject(nguyen);
-			
-		os.close();		
-	}
+
+    /**
+     * Copy constructor
+     * */
+    public Student(Student other) {
+        setName(other.name);
+        setGPA(other.GPA);
+    }
+
+    /**
+     * Constructor that takes two values
+     * */
+    public Student(String name, double GPA) {
+        setName(name);
+        setGPA(GPA);
+    }
+
+    /**
+     * (3) When designing the compareTo() method, use the GPA to determine if student1 > student2.
+     * a. Consider returning the difference between the two students as the magnitude of
+     * difference (either positive or negative)
+     * */
+    @Override
+    public int compareTo(Student o) {
+        if (this.getGPA() < o.GPA) {
+            return 1;
+        }
+        return -1;
+    }
+
+    /**
+     * Method to override clone
+     * and implement cloneable
+     * */
+    @Override
+    protected Object clone() {
+        // creating and returning a Student using a copy constructor
+        return new Student(this);
+    }
+
+    /**
+     * Getter for name
+     * */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Getter for GPA
+     * */
+    public double getGPA() {
+        return GPA;
+    }
+
+    /**
+     * Setter for name
+     * */
+    public void setName(String name) {
+        name = this.name;
+    }
+
+    /**
+     * Setter for GPA
+     * */
+    public void setGPA(double GPA) {
+        GPA = this.GPA;
+    }
 
 }
