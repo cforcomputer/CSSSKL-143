@@ -70,34 +70,34 @@ public class InterfaceDriver {
         
     }
 
-    public static void comparableDemo() {
-        Student a = new Student("Rob", 3.0);
-        Student b = new Student("Bill", 4.0);
-        Student c = new Student("Mary", 4.0);
-        
-        
-        System.out.println( " a compareTo b :" + a.compareTo(b));
-        System.out.println( " b compareTo a :" + b.compareTo(a));
-        System.out.println( " b compareTo c :" + b.compareTo(c));
-    }
-    
-    
-    public static void cloneableDemo() {
-        Student a = new Student("Evan", 3.0);
-        Student c = (Student)a.clone();
-        
-        System.out.println(a);
-        System.out.println(c);
-        
-        System.out.println("Changing object a");
-        a.setName("Boo");
-        a.setGPA(3.5);
-        
-        System.out.println(" new name: " + a.getName());
-        System.out.println(" new GPA: " + a.getGPA());
-        System.out.println(" The object a: " + a);  
-        System.out.println(" The object c: " + c);  
-    }
+//    public static void comparableDemo() {
+//        Student a = new Student("Rob", 3.0);
+//        Student b = new Student("Bill", 4.0);
+//        Student c = new Student("Mary", 4.0);
+//
+//
+//        System.out.println( " a compareTo b :" + a.compareTo(b));
+//        System.out.println( " b compareTo a :" + b.compareTo(a));
+//        System.out.println( " b compareTo c :" + b.compareTo(c));
+//    }
+//
+//
+//    public static void cloneableDemo() {
+//        Student a = new Student("Evan", 3.0);
+//        Student c = (Student)a.clone();
+//
+//        System.out.println(a);
+//        System.out.println(c);
+//
+//        System.out.println("Changing object a");
+//        a.setName("Boo");
+//        a.setGPA(3.5);
+//
+//        System.out.println(" new name: " + a.getName());
+//        System.out.println(" new GPA: " + a.getGPA());
+//        System.out.println(" The object a: " + a);
+//        System.out.println(" The object c: " + c);
+//    }
     
     
 }

@@ -5,9 +5,14 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+/**
+ * (1) Build a Student Class with only two data items: a String name and a double GPA.
+ *
+ * */
 
 
 public class Student implements Serializable {
+	// String name and double GPA
 	private double GPA;
 	private String name;
 	
