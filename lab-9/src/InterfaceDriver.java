@@ -1,7 +1,4 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 //  InterfaceDriver
 //  CSSSKL143
@@ -11,11 +8,11 @@ import java.io.ObjectOutputStream;
 public class InterfaceDriver {
 
     //comment and uncomment the demo functions in main to test
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         comparableDemo();
-//        cloneableDemo();
-//        serializableDemo();
-//        actionListenerDemo();
+        cloneableDemo();
+        serializableDemo();
+        actionListenerDemo();
     }
     
     public static void actionListenerDemo() {
@@ -66,7 +63,7 @@ public class InterfaceDriver {
 
     }
 
-    public static void comparableDemo() {
+    public static void comparableDemo() throws IOException {
         Student a = new Student("Rob", 3.0);
         Student b = new Student("Bill", 4.0);
         Student c = new Student("Mary", 4.0);
@@ -78,22 +75,22 @@ public class InterfaceDriver {
     }
 
 //
-//    public static void cloneableDemo() {
-//        Student a = new Student("Evan", 3.0);
-//        Student c = (Student)a.clone();
-//
-//        System.out.println(a);
-//        System.out.println(c);
-//
-//        System.out.println("Changing object a");
-//        a.setName("Boo");
-//        a.setGPA(3.5);
-//
-//        System.out.println(" new name: " + a.getName());
-//        System.out.println(" new GPA: " + a.getGPA());
-//        System.out.println(" The object a: " + a);
-//        System.out.println(" The object c: " + c);
-//    }
+    public static void cloneableDemo() throws IOException {
+        Student a = new Student("Evan", 3.0);
+        Student c = (Student)a.clone();
+
+        System.out.println(a);
+        System.out.println(c);
+
+        System.out.println("Changing object a");
+        a.setName("Boo");
+        a.setGPA(3.5);
+
+        System.out.println(" new name: " + a.getName());
+        System.out.println(" new GPA: " + a.getGPA());
+        System.out.println(" The object a: " + a);
+        System.out.println(" The object c: " + c);
+    }
     
     
 }

@@ -1,15 +1,22 @@
+import java.io.*;
+
 /**
  * @author Patrick O'Brien
  * @version 11/25/2019
  * */
 
 // Build a class definition so that it implements comparable
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student>, Serializable {
 
     // (1) Build a Student Class with only two data items: a String name and a double GPA.
     private String name;
     private double GPA;
 
+//    // write
+//    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("data.obj"));
+//
+//    // read
+//    ObjectInputStream is = new ObjectInputStream(new FileInputStream("data.obj"));
     /**
      * (4) Build main to test your Students, and in this main build a list of 10 Students with different GPAs.
      * */
@@ -31,7 +38,7 @@ public class Student implements Comparable<Student> {
     /**
      * Copy constructor
      * */
-    public Student(Student other) {
+    public Student(Student other) throws IOException {
         setName(other.name);
         setGPA(other.GPA);
     }
@@ -39,7 +46,7 @@ public class Student implements Comparable<Student> {
     /**
      * Constructor that takes two values
      * */
-    public Student(String name, double GPA) {
+    public Student(String name, double GPA) throws IOException {
         setName(name);
         setGPA(GPA);
     }
@@ -64,7 +71,12 @@ public class Student implements Comparable<Student> {
     @Override
     protected Object clone() {
         // creating and returning a Student using a copy constructor
-        return new Student(this);
+        try {
+            return new Student(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**

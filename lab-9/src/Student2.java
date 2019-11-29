@@ -8,6 +8,7 @@ import java.io.Serializable;
 /**
  * (1) Build a Student Class with only two data items: a String name and a double GPA.
  *
+ *
  * */
 
 
